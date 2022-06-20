@@ -2,15 +2,14 @@ import { Badge, HStack, StackDivider, VStack } from '@chakra-ui/react';
 import TodoItem from './TodoItem';
 
  function TodoList  ({todos, setTodos})  {
-    let size = todos.length
 
-    if(!size){
+   /*  if(!size){
         return(
             <Badge colorScheme='green' p='4' borderRadius='lg' m='4'>
                 No tienes tareas!
             </Badge>
         )
-    }
+    } */
 
     return (
         <VStack 
