@@ -6,10 +6,13 @@ import TodoList from './components/list/TodoList'
 import {FaSun, FaMoon} from 'react-icons/fa'
 
 function App() {
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')))
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [])
+
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
+    if(todos.length){
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
   }, [todos])
 
     function addTask (e){
@@ -21,7 +24,6 @@ function App() {
         
         setTodos(prevState => [...prevState, {id:Math.random(), value:inputValue, completed: false}])
         e.target.input.value = ''
-        console.log(todos)
       } 
     }
 
